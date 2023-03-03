@@ -49,9 +49,9 @@ CREATE TABLE SpotifyClone.users_artists(
 
  INSERT INTO SpotifyClone.plans (name, price)
  VALUES ('gratuito', 0),
-   ('familiar', 7.99),
-   ('universitário', 5.99),
-   ('pessoal', 6.99);
+ ('familiar', 7.99),
+ ('universitário', 5.99),
+ ('pessoal', 6.99);
 
 INSERT INTO SpotifyClone.users (name, age, signature_date, plan_id)
  VALUES ('Barbara Liskov', 82, '2019-10-20', 1),

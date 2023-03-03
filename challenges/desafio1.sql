@@ -1,5 +1,3 @@
--- Descomente e altere as linhas abaixo:
-
 DROP DATABASE IF EXISTS SpotifyClone;
 CREATE DATABASE IF NOT EXISTS SpotifyClone;
 CREATE TABLE SpotifyClone.artist(
@@ -29,7 +27,7 @@ CREATE TABLE SpotifyClone.users(
 CREATE TABLE SpotifyClone.songs(
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45) NOT NULL,
-    duration SECOND NOT NULL,
+    duration INT NOT NULL,
     album_id INT NOT NULL,
     FOREIGN KEY (album_id) REFERENCES album(id)
 ) engine = InnoDB;
@@ -43,7 +41,7 @@ CREATE TABLE SpotifyClone.history(
 ) engine = InnoDB;
 CREATE TABLE SpotifyClone.users_artists(
     user_id INT NOT NULL,
-    artist_id INT NOT NULL,
+    artist_id INT,
     PRIMARY KEY(user_id, artist_id),
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (artist_id) REFERENCES artist(id)
@@ -88,18 +86,17 @@ INSERT INTO SpotifyClone.users (name, age, signature_date, plan_id)
    (6, 6),
    (6, 1),
    (7, 6),
-   (8, NULL),
    (9, 3),
    (10, 2);
 
  INSERT INTO SpotifyClone.album (name, release_year, artist_id) 
- VALUES ('Renaissance', '2022', 1);
- ('Jazz', '1978', 2);
- ('Hot Space', '1982', 2);
- ('Falso Brilhante', '1998', 3);
- ('Vento de Maio', '2001', 3);
- ('QVVJFA?', '2003', 4);
- ('Somewhere Far Beyond', '2007', 5);
+ VALUES ('Renaissance', '2022', 1),
+ ('Jazz', '1978', 2),
+ ('Hot Space', '1982', 2),
+ ('Falso Brilhante', '1998', 3),
+ ('Vento de Maio', '2001', 3),
+ ('QVVJFA?', '2003', 4),
+ ('Somewhere Far Beyond', '2007', 5),
  ('I Put A Spell On You', '2012', 6);
 
  INSERT INTO SpotifyClone.songs (name, duration, album_id) 
@@ -112,23 +109,25 @@ INSERT INTO SpotifyClone.users (name, age, signature_date, plan_id)
  ("O Medo de Amar é o Medo de Ser Livre", 207, 3),
  ("Samba em Paris", 267, 4),
  ("The Bard\'s Song", 244, 5),
- ("Feeling Good", 100, 6),
+ ("Feeling Good", 100, 6);
+ 
+ USE SpotifyClone;
 
- INSERT INTO tableName (data_reproducao, song_id, user_id) 
- VALUES ('"2022-02-28 10:45:55"', 8, 1);
- ('"2020-05-02 05:30:35"', 2, 1);
- ('"2020-03-06 11:22:33"', 10, 1);
- ('"2022-08-05 08:05:17"', 10, 2);
- ('"2020-01-02 07:40:33"', 7, 2);
- ('"2020-11-13 16:55:13"', 10, 3);
- ('"2020-12-05 18:38:30"', 2, 3);
- ('"2021-08-15 17:10:10"', 8, 4);
- ('"2022-01-09 01:44:33"', 8, 5);
- ('"2020-08-06 15:23:43"', 5, 5);
- ('"2017-01-24 00:31:17"', 7, 6);
- ('"2017-10-12 12:35:20"', 1, 6);
- ('"2011-12-15 22:30:49"', 4, 7);
- ('"2012-03-17 14:56:41"', 4, 8);
- ('"2022-02-24 21:14:22"', 9, 9);
- ('"2015-12-13 08:30:22"', 3, 10);
+ INSERT INTO `history` (user_id, song_id, data_reproducao) 
+ VALUES (1, 8, "2022-02-28 10:45:55"),
+ (1, 2, "2020-05-02 05:30:35"),
+ (1, 10, "2020-03-06 11:22:33"),
+ (2, 10, "2022-08-05 08:05:17"),
+ (2, 7, "2020-01-02 07:40:33"),
+ (3, 10, "2020-11-13 16:55:13"),
+ (3, 2, "2020-12-05 18:38:30"),
+ (4, 8, "2021-08-15 17:10:10"),
+ (5, 8, "2022-01-09 01:44:33"),
+ (5, 5, "2020-08-06 15:23:43"),
+ (6, 7, "2017-01-24 00:31:17"),
+ (6, 1, "2017-10-12 12:35:20"),
+ (7, 4, "2011-12-15 22:30:49"),
+ (8, 4, "2012-03-17 14:56:41"),
+ (9, 9, "2022-02-24 21:14:22"),
+ (10, 3, "2015-12-13 08:30:22");
 

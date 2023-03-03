@@ -49,9 +49,9 @@ CREATE TABLE SpotifyClone.users_artists(
 
  INSERT INTO SpotifyClone.plans (name, price)
  VALUES ('gratuito', 0),
- ('familiar', 7.99),
- ('universitário', 5.99),
- ('pessoal', 6.99);
+   ('familiar', 7.99),
+   ('universitário', 5.99),
+   ('pessoal', 6.99);
 
 INSERT INTO SpotifyClone.users (name, age, signature_date, plan_id)
  VALUES ('Barbara Liskov', 82, '2019-10-20', 1),
@@ -100,20 +100,18 @@ INSERT INTO SpotifyClone.users (name, age, signature_date, plan_id)
  ('I Put A Spell On You', '2012', 6);
 
  INSERT INTO SpotifyClone.songs (name, duration, album_id) 
- VALUES ('"BREAK MY SOUL"', 279, 1),
- ("VIRGO\'S GROOVE",369, 1),
+ VALUES ("BREAK MY SOUL", 279, 1),
+ ("VIRGO'S GROOVE",369, 1),
  ("ALIEN SUPERSTAR", 116, 1),
- ("Don\'t Stop Me Now", 203, 2),
+ ("Don't Stop Me Now", 203, 2),
  ("Under Pressure", 152, 2),
  ("Como Nossos Pais", 105, 3),
  ("O Medo de Amar é o Medo de Ser Livre", 207, 3),
  ("Samba em Paris", 267, 4),
- ("The Bard\'s Song", 244, 5),
+ ("The Bard's Song", 244, 5),
  ("Feeling Good", 100, 6);
- 
- USE SpotifyClone;
 
- INSERT INTO `history` (user_id, song_id, data_reproducao) 
+ INSERT INTO SpotifyClone.history (user_id, song_id, reproduction_date) 
  VALUES (1, 8, "2022-02-28 10:45:55"),
  (1, 2, "2020-05-02 05:30:35"),
  (1, 10, "2020-03-06 11:22:33"),
